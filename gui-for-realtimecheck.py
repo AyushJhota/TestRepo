@@ -67,13 +67,28 @@ class AccessMessageWindow:
         # Set window size
         self.root.geometry("400x200")
         
-        # Set window position to the middle of the screen
-        screen_width = self.root.winfo_screenwidth()
-        screen_height = self.root.winfo_screenheight()
-        x_coordinate = (screen_width - 400) // 2
-        y_coordinate = (screen_height - 200) // 2
-        self.root.geometry(f"400x200+{x_coordinate}+{y_coordinate}")
+        # # Set window position to the middle of the screen
+        # screen_width = self.root.winfo_screenwidth()
+        # screen_height = self.root.winfo_screenheight()
+        # x_coordinate = (screen_width - 400) // 2
+        # y_coordinate = (screen_height - 200) // 2
+        # self.root.geometry(f"400x200+{x_coordinate}+{y_coordinate}")
         
+        # Set window position on right top side
+        screen_width = self.root.winfo_screenwidth()
+        self.root.geometry(f"+{screen_width-320}+20")
+
+
+        # Set window background color
+        self.root.config(bg="pink")
+        
+        self.message_label = tk.Label(self.root, text=message, font=("Helvetica", 20), fg="purple", bg="blue")
+        self.message_label.pack(pady=20)
+        
+        # self.next_button = tk.Button(self.root, text="Next Scan", command=callback, bg="gold", fg="magenta")
+        # self.next_button.pack(pady=10)
+
+
         # Display the access message and decoded data
         label_message = tk.Label(self.root, text=message, font=("Arial", 14))
         label_message.pack(pady=10)
