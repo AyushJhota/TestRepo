@@ -23,11 +23,11 @@ class QRCodeScanner:
             for obj in decoded_objects:
                 data = obj.data.decode('utf-8')
                 print("Decoded Data:", data)
-                access_status, attendee_name = check_access(data, "ticket_data.xlsx")  # Get attendee name
+                access_status, attendee_name = check_access(data, "data.xlsx")  # Get attendee name
                 print(access_status)  # Print the access status
                 show_access_message(access_status, attendee_name, data, on_next_button_click)  # Pass the decoded data
                 if access_status.startswith("Welcome"):  # Check if access is granted
-                    update_excel(data, "ticket_data.xlsx")  # Update excel if access is granted
+                    update_excel(data, "data.xlsx")  # Update excel if access is granted
                 # Add any further processing here
             cv2.imshow('frame', frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -107,7 +107,3 @@ def on_next_button_click():
 if __name__ == "__main__":
     scanner = QRCodeScanner()
     scanner.start_scan()
-
-
-
-
