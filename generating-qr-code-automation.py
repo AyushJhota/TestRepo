@@ -35,6 +35,6 @@ def generate_qr_codes_from_excel(excel_file, output_folder):
     df.to_excel(excel_file, index=False)
 
 # Example usage
-excel_file = "Excel/data.xlsx"
+excel_file = "data.xlsx"
 output_folder = "qr_codes"
 generate_qr_codes_from_excel(excel_file, output_folder)
